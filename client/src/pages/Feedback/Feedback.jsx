@@ -1,6 +1,9 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./Feedback.css";
+
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './Feedback.css';
+import Navbar from '../../components/Navbar';
+
 
 export default function Feedback() {
   const [email, setEmail] = useState("");
@@ -24,6 +27,7 @@ export default function Feedback() {
           setMessage("");
           setSubmitted(false);
         }, 3000);
+
       } else {
         const errorData = await response.json();
         console.error("Error:", errorData.error);
@@ -67,6 +71,7 @@ export default function Feedback() {
           <Link to="/dashboard" className="back-button">
             <span>←</span>
           </Link>
+
 
           <h1 className="card-title">Complaints/Feedbacks</h1>
 

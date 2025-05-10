@@ -10,6 +10,7 @@ const port = 4000;
 app.use(bodyParser.json());
 app.use(cors());
 
+
 // User Registration endpoint
 app.post("/adduser", async (req, res) => {
   const { fname, lname, email, password } = req.body;
@@ -29,6 +30,7 @@ app.post("/adduser", async (req, res) => {
         .status(400)
         .json({ message: "User with this email already exists." });
     }
+
 
     // Insert new user
     const result = await pool.query(
@@ -61,6 +63,7 @@ app.post("/signup", async (req, res) => {
     fname = nameParts[0];
     lname = nameParts.slice(1).join(" ");
   }
+
 
   if (!fname || !email || !password) {
     return res.status(400).json({ message: "All fields are required." });
@@ -99,6 +102,7 @@ app.post("/signup", async (req, res) => {
 
 // Signin endpoint
 app.post("/signin", async (req, res) => {
+
   const { email, password } = req.body;
   console.log("Login attempt:", { email });
 

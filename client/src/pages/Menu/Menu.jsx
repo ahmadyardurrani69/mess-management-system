@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Menu.css";
@@ -22,6 +23,7 @@ export default function Menu() {
         setLoading(false);
       });
   }, []);
+
 
   return (
     <div className="menu-container">
